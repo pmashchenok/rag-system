@@ -1,0 +1,12 @@
+accelerate
+fastapi
+uvicorn
+transformers
+sentence-transformers
+chromadb
+python-dotenv
+pydantic
+pytest
+pymorphy2
+hf_xet
+requests

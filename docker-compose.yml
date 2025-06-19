@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  query-service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/Dockerfile
+    container_name: query_service
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.chromadb:/app/.chromadb
+    command: uvicorn src.query_service.api.query_service:app --host 0.0.0.0 --port 8000
+    restart: unless-stopped
+
+  indexing-service:
+    build:
+      context: .
+      dockerfile: Dockerfiles/Dockerfile
+    container_name: indexing_service
+    env_file: .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./.chromadb:/app/.chromadb
+    command: uvicorn src.indexing_service.api.indexing_service:app --host 0.0.0.0 --port 8000
+    restart: unless-stopped
