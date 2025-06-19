@@ -18,7 +18,7 @@ uvicorn src.indexing_service.api.indexing_service:app
 ```bash
 curl -X POST -H "Content-Type: application/json" --data-binary @data/test.json http://localhost:8001/indexing
 ```
-Сервер отправляет нам сообщение о количестве проиндексировавнных документов.
+Сервер отправляет пользователю сообщение о количестве проиндексировавнных документов.
 ### Сервис запросов
 Для запуска сервиса Запросов в терминал пишем
 ```bash
